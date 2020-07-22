@@ -2,7 +2,7 @@ import numpy as np
 import h5py
 
 # Read data file
-data_path = 'C:\\Users\\danie\\Documents\\GitHub\\EPE-Machine-Learning\\Feature Exploration\\processed-pythia82-lhc13-all-pt1-50k-r1_h022_e0175_t220_nonu_withPars_truth.z'
+data_path = '.\\processed-pythia82-lhc13-all-pt1-50k-r1_h022_e0175_t220_nonu_withPars_truth.z'
 f = h5py.File(data_path, 'r')
 dset = f['t_allpar_new']
 
