@@ -123,3 +123,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Large raw data binaries
+processed-pythia82-lhc13-all-pt1-50k-r1_h022_e0175_t220_nonu_withPars_truth.z
