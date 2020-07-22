@@ -1,21 +1,20 @@
+import os
 import numpy as np
 import h5py
 
 # Read data file
-data_path = '.\\processed-pythia82-lhc13-all-pt1-50k-r1_h022_e0175_t220_nonu_withPars_truth.z'
+dirname = os.path.dirname(__file__)
+data_path = os.path.join(dirname, 'processed-pythia82-lhc13-all-pt1-50k-r1_h022_e0175_t220_nonu_withPars_truth.z')
 f = h5py.File(data_path, 'r')
 dset = f['t_allpar_new']
 
 def countjets():
-    g = q = w = z = t = undef = 0
-    for jet in dset:
-        # Read truth labels and increment
-        g += jet[-6]
-        q += jet[-5]
-        w += jet[-4]
-        z += jet[-3]
-        t += jet[-2]
-        undef += jet[-1]
+    g = dset["j_g"].sum()
+    q = dset["j_q"].sum()
+    w = dset["j_w"].sum()
+    z = dset["j_z"].sum()
+    t = dset["j_t"].sum()
+    undef = dset["j_undef"].sum()
     
     # Final results
     print("Total: " + str(g + q + w + z + t + undef))
@@ -26,4 +25,4 @@ def countjets():
     print("t: " + str(t))
     print("undef: " + str(undef))
 
-countjets()
+# countjets()

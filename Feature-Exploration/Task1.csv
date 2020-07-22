@@ -1,0 +1,8 @@
+Label,Number of jets,Description
+Total,5119909,Total statistics
+q,777373,"Light (up, down, strange)-quark jet"
+g,1390520,Gluon jet
+w,798451,W-boson jet
+z,834146,Z-boson jet
+t,1319419,Top-quark jet
+undef,0,Undefined jet
