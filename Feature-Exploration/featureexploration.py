@@ -43,7 +43,8 @@ def makeplot(property):
         properties = jet.get_property(property)
         plt.hist(properties, bins = 100, range = (dset[property].min(), dset[property].max()), weights = np.full_like(properties, 1 / total), histtype = "step", color = jet.color, label = jet.name)
     plt.legend()
-    plt.show()
+    plt.savefig(property + ".svg")
+    plt.clf()
 
 jet_kinematics = ["j_mass_mmdt", "j_pt", "j_eta"]
 jet_substructures = ["j_zlogz", "j_multiplicity"]
@@ -52,3 +53,4 @@ ecf_c2 = ["j_c2_b1_mmdt", "j_c2_b2_mmdt"]
 ecf_d2 = ["j_d2_b1_mmdt", "j_d2_b2_mmdt", "j_d2_a1_b1_mmdt", "j_d2_a1_b2_mmdt"]
 ecf_m2 = ["j_m2_b1_mmdt", "j_m2_b2_mmdt"]
 ecf_n2 = ["j_n2_b1_mmdt", "j_n2_b2_mmdt"]
+high_level_features = [jet_kinematics, jet_substructures, ecf_c1, ecf_c2, ecf_d2, ecf_m2, ecf_n2]
