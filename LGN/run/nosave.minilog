@@ -1,0 +1,75 @@
+Initializing simulation based upon argument string:
+./train_lgn.py --datadir=converted --num-epoch=1 --batch-size=2
+Log, best, checkpoint, load files: ./log/nosave.log ./model/nosave_best.pt ./model/nosave.pt ./model/nosave.pt
+Dataset, learning target, datadir: jet is_signal converted
+Git status: dda1609
+
+Values of all model arguments:
+Namespace(activation='leakyrelu', add_beams=True, alpha=50, batch_group_size=1, batch_size=2, beam_mass=1, bestfile='./model/nosave_best.pt', checkfile='./model/nosave.pt', cuda=True, cutoff_decay=0, cutoff_type=['learn'], datadir='converted', dataset='jet', dtype='float', force_download=False, full_scalars=False, gaussian_mask=False, hard_cut_rad=inf, input='linear', level_gain=[1.0], load=False, loadfile='./model/nosave.pt', log_level='info', logdir='log/', logfile='./log/nosave.log', lr_decay=inf, lr_decay_type='cos', lr_final=1e-05, lr_init=0.001, lr_minibatch=True, max_zf=[1], maxdim=[3], mlp=True, mlp_depth=3, mlp_width=2, modeldir='model/', nobj=None, num_basis_fn=10, num_cg_levels=3, num_channels=[2, 3, 4, 3], num_epoch=1, num_mpnn_levels=1, num_test=-1, num_train=-1, num_valid=-1, num_workers=0, optim='amsgrad', parallel=False, pmu_in=False, predict=True, predictdir='predict/', predictfile='./predict/nosave', prefix='nosave', quiet=True, save=True, scale=0.005, seed=1, sgd_restart=-1, shuffle=True, soft_cut_rad=inf, soft_cut_width=inf, target='is_signal', task='train', test=True, textlog=True, top='linear', weight_decay=0, weight_init='randn', workdir='./')
+Beginning training on CUDA/GPU! Device: 0
+Initializing network!
+hard_cut_rad: [inf, inf, inf]
+soft_cut_rad: [inf, inf, inf]
+soft_cut_width: [inf, inf, inf]
+maxdim: [3, 3, 3]
+max_zf: [1, 1, 1]
+num_channels: [2, 3, 4, 3]
+CGdict maxdim: 3
+{(0, 0): 2}
+{(0, 0): 3, (1, 1): 3}
+{(0, 0): 4, (1, 1): 4, (0, 2): 4, (2, 0): 4, (2, 2): 4}
+{(0, 0): 3, (1, 1): 3, (0, 2): 3, (2, 0): 3, (2, 2): 3}
+Model initialized. Number of parameters: 4646
+Testing network for symmetries:
+Beginning covariance test!
+Boost invariance test. The output is a table of [gamma, rel. deviation] tuples:
+[[1.0, 0.0], [1.5430806348152437, 4.323235032188677e-07], [3.7621956910836314, 7.112945240805857e-06], [10.067661995777765, 3.843600643449463e-05], [27.308232836016487, 8.570609497837722e-05], [74.20994852478785, 0.005887348670512438], [201.7156361224559, 0.5246883630752563], [548.3170351552121, 36.41221618652344], [1490.479161252178, 3790.955078125], [4051.542025492594, 54156.51953125]]
+Rotation invariance test. The output is a table of [angle, rel. deviation] tuples:
+[[0.0, 0.0], [1.0, 9.462174830332515e-07], [2.0, 3.099677883255936e-07], [3.0, 2.3655437075831287e-07], [4.0, 3.1812484735382895e-07], [5.0, 1.7129798379755812e-07], [6.0, 2.6918255002783553e-07], [7.0, 2.039261772779355e-07], [8.0, 5.302080694491451e-07], [9.0, 7.912335604487453e-07]]
+Averages of components of all tensors:
+ [{(0, 0): 0.061224181205034256}, {(1, 1): 0.021459052339196205, (0, 0): 0.22370457649230957}, {(2, 0): 0.00026941060787066817, (1, 1): 0.006823115516453981, (2, 2): 0.001929357647895813, (0, 2): 0.0003691399178933352, (0, 0): 0.1452597677707672}, {(2, 0): 0.0001350998063571751, (1, 1): 0.0019478668691590428, (2, 2): 0.0001058284324244596, (0, 2): 0.00022816297132521868, (0, 0): 0.17437118291854858}]
+Medians of components of all tensors:
+ [{(0, 0): 0.0}, {(1, 1): 0.009053495712578297, (0, 0): 0.25837022066116333}, {(2, 0): 4.2285882955184206e-05, (1, 1): 0.00450137397274375, (2, 2): 0.0004973344039171934, (0, 2): 5.218533260631375e-05, (0, 0): 0.1361565738916397}, {(2, 0): 6.510221282951534e-05, (1, 1): 0.0007741057779639959, (2, 2): 3.735103382496163e-05, (0, 2): 0.00013575195043813437, (0, 0): 0.15369561314582825}]
+Rotation Invariance test (relative): 8.4675e-07
+Largest deviation in covariance test : 0.00026685
+Largest deviation in covariance test 0.00026685 detected! Detailed summary (all relative):
+(lvl, key) = (0, (0, 0)) -> 6.9503e-05 (norm) 2.5956e-05 (mean)
+(lvl, key) = (1, (1, 1)) -> 0.00011621 (norm) 0.00018305 (mean)
+(lvl, key) = (1, (0, 0)) -> 4.045e-06 (norm) 2.3689e-06 (mean)
+(lvl, key) = (2, (2, 0)) -> 0.0012849 (norm) 0.0015366 (mean)
+(lvl, key) = (2, (1, 1)) -> 0.00030217 (norm) 0.00050768 (mean)
+nosave E:  1/1, B: 605491/605500, L:   0.2715, ACC:   0.9276, AUC:   0.4194  dt:  0.48 243865.60 3042.78  1.00E-05
+nosave E:  1/1, B: 605492/605500, L:   0.2726, ACC:   0.9290, AUC:   0.4308  dt:  0.49 243866.10 3042.79  1.00E-05
+nosave E:  1/1, B: 605493/605500, L:   0.2676, ACC:   0.9304, AUC:   0.4420  dt:  0.46 243866.56 3042.79  1.00E-05
+nosave E:  1/1, B: 605494/605500, L:   0.2646, ACC:   0.9318, AUC:   0.4333  dt:  0.48 243867.04 3042.79  1.00E-05
+nosave E:  1/1, B: 605495/605500, L:   0.2636, ACC:   0.9331, AUC:   0.4444  dt:  0.46 243867.51 3042.79  1.00E-05
+nosave E:  1/1, B: 605496/605500, L:   0.2585, ACC:   0.9344, AUC:   0.4553  dt:  0.51 243868.02 3042.80  1.00E-05
+nosave E:  1/1, B: 605497/605500, L:   0.2537, ACC:   0.9357, AUC:   0.4660  dt:  0.49 243868.51 3042.80  1.00E-05
+nosave E:  1/1, B: 605498/605500, L:   0.2564, ACC:   0.9370, AUC:   0.4765  dt:  0.50 243869.02 3042.80  1.00E-05
+nosave E:  1/1, B: 605499/605500, L:   0.2516, ACC:   0.9382, AUC:   0.4671  dt:  0.48 243869.50 3042.80  1.00E-05
+nosave E:  1/1, B: 605500/605500, L:   0.2467, ACC:   0.9394, AUC:   0.4580  dt:  0.49 243869.99 3042.81  1.00E-05
+Epoch 1 Complete! Current Training Loss:     0.2390     0.9061     0.9176     25.7035 @0.3000
+[[0.437 0.063]
+ [0.031 0.469]]
+ROC saved to file ./predict/nosave.epoch1.train_ROC.csv
+Saving predictions to file: ./predict/nosave.final.train.pt
+Saving model to checkpoint file: ./model/nosave.pt
+Starting testing on valid set: 
+ Done! (Time: 29794.643353s)
+Epoch 1 Complete! Current Validation Loss:     0.1995     0.9188     0.9421     73.6218 @0.3000
+[[0.447 0.053]
+ [0.028 0.472]]
+ROC saved to file ./predict/nosave.epoch1.valid_ROC.csv
+Saving predictions to file: ./predict/nosave.final.valid.pt
+Lowest loss achieved! Saving best model to file: ./model/nosave_best.pt
+Epoch 1 complete!
+Getting predictions for model in last checkpoint.
+Starting testing on test set: 
+ Done! (Time: 30698.504369s)
+Training Complete! Final Testing Loss:     0.1976     0.9198     0.9427     74.8107 @0.3000
+[[0.448 0.052]
+ROC saved to file ./predict/nosave.best.test_ROC.csv
+Saving predictions to file: ./predict/nosave.best.test.pt
+BEST MODEL IS SAME AS FINAL
+Inference phase complete!
+LOG TIMESTAMP: 1600669467.799564
